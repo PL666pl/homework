@@ -1,21 +1,30 @@
 # Pi 本地源码编译与运行实验报告
 
-![engines.node.png](images/engines.node.png)
-![scripts.build.png](scripts.build.png)
-![S1.png](S1.png)
-![S2.png](S2.png)
-![S4.png](S4.png)
-![S5.png](S5.png)
-![S6启动.png](S6启动.png)
-![S6交互.png](S6交互.png)
+## 任务一：检查和安装开发工具
+![S1.png](images/S1.png)
 
+## 任务二：下载课程仓库源码
+![S2.png](images/S2.png)
+
+## 任务三：阅读配置，确认安装与编译的依据
+![engines.node.png](images/engines.node.png)
+![scripts.build.png](images/scripts.build.png)
 ## 1. Node.js 版本要求在哪里？
 Node.js 版本要求写在仓库**根目录 package.json 的 engines 字段**，要求 node 版本 ≥ 22.19.0。
 
 ## 2. npm run build 实际从哪里读取命令？
 `npm run build` 先读取**根 package.json 中 `scripts.build` 的命令**；该脚本会按顺序进入各个子包目录，调用每个子包自己 package.json 里定义的 build 脚本，各子包的编译逻辑由子包配置决定。
 
-## 3. 源码入口与打包入口对比
+## 任务四：安装项目依赖
+![S4.png](images/S4.png)
+
+## 任务五：本地编译与构建产物验证
+![S5.png](images/S5.png)
+
+## 任务六：启动本地源码版本并完成一次会话
+![S6启动.png](images/S6启动.png)
+![S6交互.png](images/S6交互.png)
+
 ### （1）如何确保运行的是本地源码
 使用 `.\pi-test.bat` 作为启动入口，该脚本直接加载项目内 `packages/coding-agent/src` 下的 TypeScript 源码，不会读取 `dist` 目录下编译打包后的文件；启动前通过 `.\pi-test.bat --version` 验证版本，同时该启动方式不依赖预先编译产物，以此确认运行的是本地源码。
 
